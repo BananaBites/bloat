@@ -1,0 +1,22 @@
+[package]
+name = "bloat"
+version = "0.1.0"
+edition = "2024"
+description = "Interactive disk-usage treemap for the terminal"
+repository = "https://github.com/BananaBites/bloat"
+homepage = "https://github.com/BananaBites/bloat"
+license = "MIT"
+readme = "README.md"
+keywords = ["du", "disk-usage", "treemap", "tui", "terminal"]
+categories = ["command-line-utilities", "filesystem"]
+
+[dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.6.7", features = ["derive"] }
+clap_complete = { version = "4.6.11", features = ["unstable-dynamic"] }
+jwalk = "0.9.0"
+ratatui = "0.30.2"
+unicode-width = "0.2.2"
+
+[target."cfg(unix)".dependencies]
+libc = "0.2.189"
