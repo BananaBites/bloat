@@ -176,6 +176,20 @@ Options:
       --links <auto|on|off> OSC 8 hyperlinks on paths                [default: auto]
 ```
 
+## Development
+
+```sh
+make                 # build everything (debug: binary + tests)
+make run             # interactive treemap of this directory
+make report          # static report of this directory
+make test            # the test suite
+make release         # optimised binary -> target/release/bloat
+make run DIR=/var ARGS='-a -e *.iso'   # other directory, extra flags
+```
+
+`make help` lists every target. The Makefile is only a convenience for working
+in a checkout — installing never uses it.
+
 ## Layout of the code
 
 | file | what |
@@ -192,6 +206,7 @@ Options:
 | `src/version.rs` | build stamp (git hash via `build.rs`), remote commit probe |
 | `src/maintenance.rs` | `doctor`, `update`, `completions` |
 | `install.sh` | the one-liner installer |
+| `Makefile` | local development targets (build, run, report, test) |
 
 Tests (`cargo test`) cover the layout invariants (exact tiling, minimum slices),
 arena propagation, globbing, formatting, CLI parsing, completion generation and
